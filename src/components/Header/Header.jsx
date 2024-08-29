@@ -8,6 +8,7 @@ import useHeaderShadow from "../../hooks/useHeaderShadow";
 
 const Header = () => {
   const menuRef = useRef(null);
+  const iconRef = useRef(null);
   const [menuOpened, setMenuOpened] = useState(false);
   const headerShadow = useHeaderShadow();
 
@@ -15,6 +16,7 @@ const Header = () => {
   useOutsideAlerter({
     menuRef,
     setMenuOpened,
+    iconRef,
   });
 
   return (
@@ -46,6 +48,7 @@ const Header = () => {
         {/* for medium and small screens */}
         <div
           className={css.menuIcon}
+          ref={iconRef}
           onClick={() => setMenuOpened((prev) => !prev)}
         >
           <BiMenuAltRight size={30} />
