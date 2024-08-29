@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-export default function useOutsideAlerter({menuRef, setMenuOpened}) {
+export default function useOutsideAlerter({menuRef, setMenuOpened,iconRef}) {
   const viewport_width = document.documentElement.clientWidth;
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
      */
     function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (menuRef.current && !menuRef.current.contains(event.target) && !iconRef.current.contains(event.target)) {
         if (viewport_width <= 640) {
             setMenuOpened(false);
         }
